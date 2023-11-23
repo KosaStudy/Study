@@ -1,6 +1,9 @@
+package CodingTest.SolvedAC_Lv3;
+
 import java.util.Scanner;
 
-public class Main {
+/* 1로 만들기 */
+ class _1_로만들기 {
     static Integer[] dp;
 
     public static void main(String[] args){
