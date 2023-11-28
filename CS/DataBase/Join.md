@@ -1,7 +1,7 @@
 # JOIN
 - 두 개이상의 테이블이나 데이터베이스를 연결해서 데이터를 검색하는 방법.
 
-
+https://github.com/KosaStudy/Study/blob/main/CS/DataBase/Image/CROSS%20JOIN.png
 ## JOIN 종류
 ### 1. INNER JOIN
 - 두 테이블을 조인할 때, 두 테이블에 모두 지정한 열의 데이터가 있어야 한다.
