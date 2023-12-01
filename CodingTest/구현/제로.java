@@ -20,7 +20,7 @@ public class 제로 {
         }
 
         int sum = 0;
-        while (st.size() != 0) {
+        while (!st.isEmpty()) {
             sum += st.pop();
         }
 
