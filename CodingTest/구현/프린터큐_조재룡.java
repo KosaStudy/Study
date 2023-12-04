@@ -1,56 +1,60 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-public class 올림픽_조재룡 {
-
-    static int N, K;
-
-    static int[][] contry;
-
-    static int sum = 0;
+public class 프린터큐_조재룡 {
+    static int N;
+    static int M;
+    static int K;
+    static int cnt = 0;
+    static int max = 0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
-        K = Integer.parseInt(st.nextToken());
-        contry = new int[N][5];
+        N = Integer.parseInt(br.readLine());
 
-        for(int i=0;i<N;i++){
+        while(N-->0){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            M = Integer.parseInt(st.nextToken());
+            K = Integer.parseInt(st.nextToken());
+            Queue<Document> queue = new LinkedList<>();
             st = new StringTokenizer(br.readLine());
-            for(int j=0; j<4;j++){
-                contry[i][j] = Integer.parseInt(st.nextToken());
+            for(int i=0;i<M;i++){
+                queue.add(new Document(i,Integer.parseInt(st.nextToken())));
+            }
+            cnt = 1;
+
+            while(!queue.isEmpty()){
+                max = 0;
+                //여기서 max 구하기
+                for (Document document : queue) {
+                    if(max<document.important){
+                        max = document.important;
+                    }
+                }
+
+                Document document = queue.poll();
+                if(document.important==max){
+                    if(document.index==K){
+                        System.out.println(cnt);
+                        break;
+                    }else{
+                        cnt++;
+                    }
+                }else{
+                    queue.add(document);
+                }
             }
         }
-
-        Arrays.sort(contry, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                if(o1[1] != o2[1]) return o2[1]-o1[1];
-                if(o1[2] != o2[2]) return o2[2]-o1[2];
-                if(o1[3] != o2[3]) return o2[3]-o1[3];
-                return o2[0]-o1[0];
-            }
-        });
-
-        contry[0][4] = 1;
-
-        for(int i=1;i<N;i++){
-            if(contry[i-1][1] == contry[i][1] && contry[i-1][2] == contry[i][2] && contry[i-1][3] == contry[i][3]){
-                    contry[i][4] = contry[i-1][4];
-            }else{
-                contry[i][4] = i+1;
-            }
-        }
-
-        for(int i=0;i<N;i++){
-            if(contry[i][0]==K){
-                System.out.println(contry[i][4]);
-                break;
-            }
-        }
-
     }
 
+    static class Document{
+        int index, important;
+        Document(int index, int important){
+            this.index = index;
+            this.important = important;
+        }
+    }
 }
