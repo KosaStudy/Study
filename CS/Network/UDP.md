@@ -24,6 +24,7 @@
 <br>
 
 ## TCP와 차이점
+![udp](../Network/Image/udp.png)
 - client / server라는 개념으로 server에서 client의 세션접속을 대기하는 방식과는 다르다
 - 송신/수신측 모두 데이터를 읽어들이는 *Reciever*를 만들어야 한다
 - 세션을 제어하는 TCP와 다르게 전송처리에 대한 보장이 없더라도 대량의 데이터를 송신하는 미디어 처리에 주로 활용됨
