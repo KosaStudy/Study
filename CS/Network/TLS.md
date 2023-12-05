@@ -80,7 +80,7 @@ TLS HandShake를 하는 동안 클라이언트와 웹 서버는 아래의 일을
 
       매번 연결할 때마다 HandShake 과정을 진행하는 것을 비효율적이기 때문에 최초 HandShake 과정을 진행하고 Session ID를 가진다. 해당 ID로 위 과정을 반보해서 진행하지 않는다.
 
-      ![SessionId](/Image/TLS_sessionId.png)
+      ![SessionId](Image/TLS_sessionId.png)
 
 2. Server : Server Hello (암호화 알고리즘 선택)
 
