@@ -16,6 +16,7 @@
 <br>  
 
 ## UDP 데이터 전송방식 2가지
+![udp](../Network/Image/udp2.png)
 ### 1. Unicasting
 특정 아이피를 지정하여 데이터를 전송하는 유니캐스팅
 ### 2. Broadcasting
