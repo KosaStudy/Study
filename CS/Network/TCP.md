@@ -5,12 +5,21 @@
 - 신뢰적이고 연결지향성 서비스를 제
 
 ### 3 way-handshake & 4 way-handshake
-3 way-handshake
+3 way-handshake<br>
 : TCP 네트워크에서 통신하는 장치가 서로 연결이 잘 되었는지 확인하는 방법
+![TCP](../Network/Image/3way-handshake.png)
+1. Client 가 Server에 접속을 요청하는 SYN 플래그 전송
+2. Server는 Listen 상태에서 SYN이 들어온 것을 확인하고, SYN + ACK를 Client 에게 전송
+3. SYN + ACK 상태를 확인한 Client는 서버에게 ACK를 전송 후 연결이 성립됨
 
-4 way-handshake
+4 way-handshake<br>
 : TCP 네트워크에서 통시하는 장치의 연결을 해제하는 방법
-
+![TCP](../Network/Image/4way-handshake.png)
+1. Client가 연결 종료 FIN 플래그를 Server에게 전송
+2. FIN 플래그를 받은 Server는 확인 ACK를 Client에게 전송
+3. Close 준비가 다 된 Server는 Client에게 FIN 플래그 전송
+4. Client는 해지 준비가 되었다는 응답 ACK를 Server에 전송
+   
 ### 흐름제어
 - 송신측과 수신측의 데이터 처리 속도 차이를 해결하기 위한 기법
 - 수신측이 송신측보다 데이터 처리 속도가 빠르면 문제 없지만, 송신측의 속도가 빠를 경우 문제 발생
