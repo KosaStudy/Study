@@ -2,7 +2,7 @@
 
 ### TCP 란?
 - 인터넷상에서 데이터를 메시지 형태로 보내기 위해 IP와 함께 사용하는 프로토콜
-- 신뢰적이고 연결지향성 서비스를 제
+- 신뢰적이고 연결지향성 서비스를 제공
 
 ### 3 way-handshake & 4 way-handshake
 3 way-handshake<br>
