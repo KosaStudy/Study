@@ -6,7 +6,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 
-public class 토마토(7569)_조재룡 {
+public class 토마토7569_조재룡 {
     static int N;
     static int M;
     static int H;
