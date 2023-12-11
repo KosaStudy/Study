@@ -6,6 +6,7 @@
 
 ### process의 주소 공간
 - process에 할당되는 memory 공간은 Code, Data, Stack, Heap 4개의 영역으로 이루어짐
+  ![TCP](../OperatingSystem/process-1.png)
   1. Code Segment: 프로그램 소스 코드 저장
   2. Data Segment: 전역 변수 저장
   3. Stack Segment: 함수, 지역 변수 저장
