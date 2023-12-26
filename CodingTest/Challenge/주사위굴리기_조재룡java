@@ -1,0 +1,80 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+    static int N;
+    static int M;
+    static int x;
+    static int y;
+    static int K;
+    static int[][] jido;
+    static int[] dice = new int[7];
+    static int[] dx = {0,0,-1,1};
+    static int[] dy = {1, -1, 0, 0};
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        x = Integer.parseInt(st.nextToken());
+        y = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
+        jido = new int[N][M];
+        for(int i=0; i<N;i++){
+            st = new StringTokenizer(br.readLine());
+            for (int j=0; j<M; j++){
+                jido[i][j] = Integer.parseInt(st.nextToken());
+            }
+        }
+
+        st = new StringTokenizer(br.readLine());
+        for(int i=0;i<K;i++){
+            int dir = Integer.parseInt(st.nextToken())-1;
+            int nx = x + dx[dir];
+            int ny = y + dy[dir];
+            if(nx<0 || ny<0|| nx>=N || ny>=M) continue;
+            roll(nx,ny,dir);
+            x = nx;
+            y = ny;
+        }
+    }
+
+    private static void roll(int nx, int ny, int dir) {
+        int tmp = dice[1];
+        switch (dir){
+            case 0:
+                dice[1] = dice[4];
+                dice[4] = dice[6];
+                dice[6] = dice[3];
+                dice[3] = tmp;
+                break;
+            case 1:
+                dice[1] = dice[3];
+                dice[3] = dice[6];
+                dice[6] = dice[4];
+                dice[4] = tmp;
+                break;
+            case 2:
+                dice[1] = dice[5];
+                dice[5] = dice[6];
+                dice[6] = dice[2];
+                dice[2] = tmp;
+                break;
+            case 3:
+                dice[1] = dice[2];
+                dice[2] = dice[6];
+                dice[6] = dice[5];
+                dice[5] = tmp;
+                break;
+        }
+        if(jido[nx][ny]==0){
+            jido[nx][ny] = dice[6];
+        }else{
+            dice[6] = jido[nx][ny];
+            jido[nx][ny]=0;
+        }
+        System.out.println(dice[1]);
+    }
+}
